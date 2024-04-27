@@ -55,8 +55,8 @@
                         <!-- Apply formatting styles to the quantity -->
                         <p class="quantity" style="font-size: 16px; color: #333;">{{item.quantity}}</p>
                         <div class="quantity">
-                            <img class="chg-quantity" src="{% static  'images/Vector-Arrow-Up-Transparent-PNG.png' %}">
-                            <img class="chg-quantity" src="{% static  'images/513b07e42724956e6410c48bb05d4b0f.png' %}">
+                            <img data-product="{{product.id}}" data-action="add" class="chg-quantity update-cart" src="{% static  'images/Vector-Arrow-Up-Transparent-PNG.png' %}">
+                            <img data-product="{{product.id}}" data-action="remove" class="chg-quantity update-cart" src="{% static  'images/513b07e42724956e6410c48bb05d4b0f.png' %}">
                         </div>
                     </div>
                     <div style="flex:1"><p>${{item.get_total}}</p></div>
