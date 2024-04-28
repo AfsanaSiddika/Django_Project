@@ -10,7 +10,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
 
-
+@login_required(login_url='login')
 def store(request):
     if request.user.is_authenticated:
         customer = request.user.customer
@@ -142,7 +142,7 @@ def LoginPage(request):
         user = authenticate(request, username=username, password=pass1)
         if user is not None:
             login(request, user)
-            return redirect('home')
+            return redirect('store')
         else:
             return HttpResponse("Username or Password is incorrect!!!")
 
