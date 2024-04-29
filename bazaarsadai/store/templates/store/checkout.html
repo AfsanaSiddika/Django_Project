@@ -119,25 +119,25 @@
 			shippinginfo.zipcode = from.zipcode.value
 		}
 
-		if(user == 'AnonymousUser'){
-			userFormData.name = from.name.value
-			userFormData.email = from.email.value
-		}
-        vor url = '/process_order/'
-        fetch (url,{
-            method:'POST',
-            headers:{
-                'Content-Type':'application/json',
-                'X-CSRFToken';csrftoken,
-            },
-            body:JSON.stringify({'form': userFormdata, 'shipping':shippinginfo })
-        })
-        .then((response) => response.json())
-        .then((data) =>{
-          consoLe.Log('success:,data);
-          alert('Transaction complete);
-        window.location.href = "(%url 'store'%)"
-        })
+<!--		if(user == 'AnonymousUser'){-->
+<!--			userFormData.name = from.name.value-->
+<!--			userFormData.email = from.email.value-->
+<!--		}-->
+<!--        vor url = '/process_order/'-->
+<!--        fetch (url,{-->
+<!--            method:'POST',-->
+<!--            headers:{-->
+<!--                'Content-Type':'application/json',-->
+<!--                'X-CSRFToken';csrftoken,-->
+<!--            },-->
+<!--            body:JSON.stringify({'form': userFormdata, 'shipping':shippinginfo })-->
+<!--        })-->
+<!--        .then((response) => response.json())-->
+<!--        .then((data) =>{-->
+<!--          consoLe.Log('success:,data);-->
+<!--          alert('Transaction complete);-->
+<!--        window.location.href = "(%url 'store'%)"-->
+<!--        })-->
 
     }
 </script>
