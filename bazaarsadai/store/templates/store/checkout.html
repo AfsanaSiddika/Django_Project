@@ -70,6 +70,39 @@
 
 <script src="https://www/paypal.com/sdk/js?client-id=sb&currency=USD&disable-funding=credit"></script>
 
+<script>
+<!--    vor total = '{{order.get_cart_total}}'-->
+//render the paypal button into #paypal-button-container
+paypal.Buttons({
+
+<!--style:{-->
+<!--   -->
+<!--color: 'blue',-->
+<!--shape:'rect',-->
+<!--},-->
+
+        //Set up the transaction
+        createOrder: fucntion(data,actions){
+            return actions.order.create({
+                purchase_units:[{
+                    amount:{
+                        value : '0.01'
+<!--                        value: parseFloat(total).tofixed(2)-->
+                            }
+                        }]
+                    });
+                },
+        //Finalize the transaction
+        onApprove: function(data, actions){
+            return actions.order.capture().then(fuction(details){
+                //show a success message to the buyer
+                alert('Transaction completed by '+details.payer.namw.given_name + '!');
+            })
+        }
+
+    }).render('paypal-button-container');
+</script>
+
 <script type="text/javascript">
     var shipping = '{{ order.shipping }}';
 	var total = '{{order.get_cart_total|floatformat:2}}'
